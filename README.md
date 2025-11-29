@@ -1,2 +1,2 @@
 # WebPlayground
-web sample
+web 练习例程
