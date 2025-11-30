@@ -1,9 +1,9 @@
-import React from 'react';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import HomeScreen from '../screens/HomeScreen';
 import ExplorerScreen from '../screens/ExplorerScreen';
+import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -14,6 +14,7 @@ const AppNavigator = () => {
       initialRouteName="Chat"
       activeColor="#6200ee"
       barStyle={{ backgroundColor: 'white' }}
+      shifting={false} // 禁用 shifting 模式避免动画问题
     >
       <Tab.Screen
         name="Home"
@@ -21,7 +22,7 @@ const AppNavigator = () => {
         options={{
           tabBarLabel: 'home',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <Icon name="home" color={color} size={26} />
           ),
         }}
       />
@@ -31,7 +32,7 @@ const AppNavigator = () => {
         options={{
           tabBarLabel: 'Explorer',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="explore" color={color} size={26} />
+            <Icon name="explore" color={color} size={26} />
           ),
         }}
       />
@@ -41,7 +42,7 @@ const AppNavigator = () => {
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="person" color={color} size={26} />
+            <Icon name="manage-accounts" color={color} size={26} />
           ),
         }}
       />
