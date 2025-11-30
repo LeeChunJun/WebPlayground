@@ -1,1 +1,3 @@
-// 历史记录页面
+// 历史记录界面
+export * from './HistoryScreen';
+export { default } from './HistoryScreen';
