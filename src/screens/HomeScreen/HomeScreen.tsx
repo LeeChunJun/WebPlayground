@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { chatIdForGemini, chatNameForGemini, chatTypeForGemini, ChatType  } from '../../constants';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { chatIdForGemini, chatNameForGemini, ChatType, chatTypeForGemini } from '../../constants';
 
 // Stack Navigator 的 param list 是这个类型
 type RootStackParamList = {
@@ -19,7 +19,7 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'C
 
 const HomeScreen = () => {
   const [hasChatHistory, setHasChatHistory] = useState(false);
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenNavigationProp>();
 
   // 检查聊天历史的逻辑
   useEffect(() => {
@@ -38,8 +38,8 @@ const HomeScreen = () => {
 
   const handleStartChat = () => {
     // 跳转到与 Gemini 的聊天页面
-    navigation.navigate('ChatScreen', { 
-      chatId: chatIdForGemini, 
+    navigation.navigate('ChatScreen', {
+      chatId: chatIdForGemini,
       chatName: chatNameForGemini,
       chatType: chatTypeForGemini
     });
@@ -53,8 +53,8 @@ const HomeScreen = () => {
           <Text style={styles.guidanceText}>
             点击开始与 Gemini 对话
           </Text>
-          <TouchableOpacity 
-            style={styles.startButton} 
+          <TouchableOpacity
+            style={styles.startButton}
             onPress={handleStartChat}
             activeOpacity={0.7}
           >
