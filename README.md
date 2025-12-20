@@ -6,9 +6,11 @@
    npm install
    npm run format
    npm run dev
-```   
+```
 
 ### 可选：使用以下命令在项目目录中初始化 Git：
 ```bash
    git init && git add -A && git commit -m "initial commit"
-```   
+```
+
+## 项目介绍：
